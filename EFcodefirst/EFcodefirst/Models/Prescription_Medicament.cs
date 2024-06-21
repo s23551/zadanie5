@@ -7,10 +7,19 @@ namespace EFcodefirst.Models;
 [Table("Prescription_Medicament")]
 public class Prescription_Medicament
 {
-    [Key, ForeignKey("IdMedicament")]
+    [Key]
+    public int IdMedicament { get; set; }
+
+    [Key]
+    public int IdPrescription {
+        get;
+        set;
+    }
+    
+    [ForeignKey("IdMedicament")]
     public virtual Medicament Medicament { get; set; }
     
-    [Key, ForeignKey("IdPrescription")]
+    [ForeignKey("IdPrescription")]
     public virtual Prescription Prescription { get; set; }
     
     public int? Dose { get; set; }
